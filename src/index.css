@@ -101,6 +101,37 @@ html, body {
   background: #B88B4A;
 }
 
+/* Formal Couple Name Typography */
+.couple-name,
+.font-script.normal-case {
+  font-family: "Great Vibes", "Alex Brush", cursive;
+  text-transform: none;
+  font-variant-ligatures: common-ligatures;
+}
+
+/* Explicit capital letter for calligraphy names */
+.capitalize-none {
+  text-transform: none;
+}
+
+.couple-name {
+  text-transform: none;
+  text-transform: none !important;
+}
+
+/* Nikkah and Arabic Typography */
+.nikkah-title {
+  text-transform: none;
+  font-variant-ligatures: common-ligatures;
+}
+
+.font-arabic {
+  direction: rtl;
+  unicode-bidi: isolate;
+  letter-spacing: 0;
+  word-spacing: 0.08em;
+}
+
 /* Gold Gradient Text */
 .gold-text-gradient {
   background: linear-gradient(135deg, #B88B4A 0%, #E6C587 30%, #D4AF6A 70%, #9C7235 100%);

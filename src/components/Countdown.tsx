@@ -81,9 +81,9 @@ export const Countdown: React.FC = () => {
   ];
 
   return (
-    <div className="w-full flex flex-col items-center gap-4 my-6 px-2">
+    <div className="w-full flex flex-col items-center gap-4 mt-[190px] mb-3 px-2">
       {/* Title */}
-      <h4 className="font-serif text-xs uppercase tracking-[0.2em] text-[#7D6249] font-bold">
+      <h4 className="font-serif text-xs text-center uppercase tracking-[0.2em] text-[#7D6249] font-bold">
         COUNTDOWN TO THE NIKKAH
       </h4>
 

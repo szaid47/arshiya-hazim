@@ -66,13 +66,13 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onOpen, isOpen }) 
 
         {/* Beautiful Typography for Names */}
         <h1 className="flex flex-col gap-2 my-6">
-          <span className="font-script text-4xl md:text-5xl gold-text-gradient font-bold leading-none py-1 select-none">
-            {weddingDetails.bride.name}
+          <span className="font-script normal-case text-4xl md:text-5xl gold-text-gradient font-bold leading-none py-1 select-none">
+            <span>A</span><span>rshiya S Banu</span>
           </span>
           <span className="font-script text-2xl text-[#7D6249] select-none">
             &amp;
           </span>
-          <span className="font-script text-4xl md:text-5xl gold-text-gradient font-bold leading-none py-1 select-none">
+          <span className="font-script normal-case text-4xl md:text-5xl gold-text-gradient font-bold leading-none py-1 select-none">
             {weddingDetails.groom.name}
           </span>
         </h1>

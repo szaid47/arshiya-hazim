@@ -91,25 +91,6 @@ export const OrnateFrame: React.FC<OrnateFrameProps> = ({ children }) => {
             />
             <circle cx="0" cy="-15" r="1.5" fill="#D4AF6A" />
           </g>
-
-          {/* Ornate Divider lines for top and bottom */}
-          {/* Subtle floral shape at the bottom center */}
-          <g transform="translate(50, 140) scale(0.5)">
-            <path
-              d="M -15,0 C -5,-5 5,-5 15,0 C 10,5 -10,5 -15,0 Z"
-              stroke="#B88B4A"
-              strokeWidth="1"
-              fill="none"
-              vectorEffect="non-scaling-stroke"
-            />
-            <path
-              d="M 0,-8 C -3,-3 -8,0 0,5 C 8,0 3,-3 0,-8 Z"
-              fill="#D4AF6A"
-              opacity="0.9"
-            />
-            <circle cx="-25" cy="0" r="1" fill="#B88B4A" />
-            <circle cx="25" cy="0" r="1" fill="#B88B4A" />
-          </g>
         </svg>
       </div>
 
