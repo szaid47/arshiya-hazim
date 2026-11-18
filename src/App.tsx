@@ -88,7 +88,7 @@ function App() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-2xl md:text-3xl font-arabic text-[#B88B4A] mb-4 pt-4 text-center leading-[1.8] whitespace-nowrap"
+              className="mt-[150px] md:mt-[155px] text-2xl md:text-3xl font-arabic text-[#B88B4A] mb-3 text-center leading-[1.7] whitespace-nowrap"
             >
               {weddingDetails.arabicHeader}
             </motion.div>
@@ -110,7 +110,7 @@ function App() {
               transition={{ delay: 0.2, duration: 0.8 }}
               className="nikkah-title font-script text-5xl md:text-6xl gold-text-gradient font-bold normal-case my-4 py-1"
             >
-              {weddingDetails.mainTitle}
+              <span>N</span><span>ikkah</span>
             </motion.h2>
 
             {/* Bride Details */}
@@ -120,8 +120,8 @@ function App() {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="flex flex-col gap-1 my-2 max-w-[280px]"
             >
-              <h3 className="couple-name text-3xl md:text-4xl gold-text-gradient leading-tight py-1">
-                <span>A</span><span>rshiya S Banu</span>
+              <h3 className="couple-name bride-name text-3xl md:text-4xl gold-text-gradient leading-tight py-1">
+                <span className="bride-initial">A</span><span>rshiya S Banu</span>
               </h3>
               <p className="text-[10px] md:text-xs text-[#7D6249] uppercase tracking-wider leading-relaxed">
                 {weddingDetails.bride.parents}

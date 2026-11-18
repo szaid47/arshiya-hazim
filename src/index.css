@@ -121,8 +121,12 @@ html, body {
 
 /* Nikkah and Arabic Typography */
 .nikkah-title {
-  text-transform: none;
+  text-transform: none !important;
   font-variant-ligatures: common-ligatures;
+}
+
+.nikkah-title > span:first-child {
+  text-transform: none;
 }
 
 .font-arabic {
@@ -165,4 +169,19 @@ html, body {
   position: fixed;
   pointer-events: none;
   z-index: 10;
+}
+
+/* Explicit capital A for Arshiya */
+.bride-initial {
+  display: inline-block;
+  font-family: "Alex Brush", "Great Vibes", cursive;
+  font-size: 1.35em;
+  line-height: 0.72;
+  text-transform: none;
+  margin-right: -0.02em;
+  vertical-align: -0.04em;
+}
+
+.bride-name {
+  text-transform: none;
 }

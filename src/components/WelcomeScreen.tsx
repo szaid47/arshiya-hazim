@@ -55,7 +55,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onOpen, isOpen }) 
         className="relative z-10 max-w-sm w-[90%] mx-auto bg-[#FAF5EE] p-8 md:p-10 rounded-2xl border-2 border-[#B88B4A] shadow-[0_20px_50px_rgba(92,64,40,0.15)] text-center gold-double-border"
       >
         {/* Arabic Calligraphy Header */}
-        <div className="text-xl md:text-2xl font-arabic text-[#B88B4A] mb-6 tracking-wide select-none">
+        <div dir="rtl" className="text-xl md:text-2xl font-arabic text-[#B88B4A] mb-6 tracking-wide select-none text-center leading-[1.7]">
           {weddingDetails.arabicHeader}
         </div>
 
@@ -66,8 +66,8 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onOpen, isOpen }) 
 
         {/* Beautiful Typography for Names */}
         <h1 className="flex flex-col gap-2 my-6">
-          <span className="font-script normal-case text-4xl md:text-5xl gold-text-gradient font-bold leading-none py-1 select-none">
-            <span>A</span><span>rshiya S Banu</span>
+          <span className="font-script bride-name text-4xl md:text-5xl gold-text-gradient font-bold leading-none py-1 select-none">
+            <span className="bride-initial">A</span><span>rshiya S Banu</span>
           </span>
           <span className="font-script text-2xl text-[#7D6249] select-none">
             &amp;
