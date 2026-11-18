@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nikkah Invitation: Arshiya & Hazim</title>
+  <meta name="description" content="Together with our families, we cordially invite you to join us for our Nikkah ceremony on Saturday, 26th December 2026 at MTP Convention Center, Trikaripur.">
+
+  <!-- Tailwind CSS CDN with custom configurations -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary-bg': '#FAF5EE',
+            'secondary-surface': '#F3E7D8',
+            'gold': '#D4AF6A',
+            'gold-dark': '#B88B4A',
+            'espresso': '#5C4028',
+            'taupe': '#7D6249'
+          },
+          fontFamily: {
+            arabic: ["Amiri", "Scheherazade New", "serif"],
+            script: ["Great Vibes", "Alex Brush", "cursive"],
+            serif: ["Cormorant Garamond", "Cinzel", "serif"],
+            sans: ["Montserrat", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Great+Vibes&family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+
+  <style>
+    /* Custom Animations and Styles matching our React build */
+    html, body {
+      background-color: #FAF5EE;
+      color: #5C4028;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF5EE;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D4AF6A;
+      border-radius: 3px;
+    }
+
+    /* Gold Gradient Text */
+    .gold-text-gradient {
+      background: linear-gradient(135deg, #B88B4A 0%, #E6C587 30%, #D4AF6A 70%, #9C7235 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Double Border Effects */
+    .gold-double-border {
+      position: relative;
+    }
+    .gold-double-border::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border: 1px solid #D4AF6A;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .gold-double-border::after {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border: 1.5px solid #B88B4A;
+      pointer-events: none;
+    }
+
+    @keyframes float-slow {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.5;
+      }
+      90% {
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(50px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .animate-float-slow {
+      animation: float-slow 20s linear infinite;
+    }
+
+    @keyframes bounce-slow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .animate-bounce-slow {
+      animation: bounce-slow 2s infinite ease-in-out;
+    }
+
+    @keyframes eq-pulse {
+      0% { height: 3px; }
+      100% { height: 14px; }
+    }
+    .animate-eq-1 { animation: eq-pulse 0.8s ease-in-out infinite alternate; }
+    .animate-eq-2 { animation: eq-pulse 1.0s ease-in-out infinite alternate; }
+    .animate-eq-3 { animation: eq-pulse 1.2s ease-in-out infinite alternate; }
+  </style>
+</head>
+<body class="relative min-h-screen bg-primary-bg flex flex-col items-center">
+
+  <!-- 1. FLOATING GOLD DUST ELEMENTS -->
+  <div id="particles-container" class="fixed inset-0 pointer-events-none overflow-hidden z-20"></div>
+
+  <!-- 2. PLAYING MUSIC (Hidden Audio with royalty-free luxury ambient Islamic instrumental as preview) -->
+  <audio id="ambient-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+
+  <!-- 3. FLOATING MUSIC TOGGLE -->
+  <button id="music-btn" class="fixed bottom-6 left-6 z-40 w-11 h-11 rounded-full bg-primary-bg/90 hover:bg-secondary-surface text-gold-dark border border-gold/40 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer backdrop-blur-sm hidden" title="Play Music" aria-label="Toggle ambient music">
+    <div id="eq-bars" class="flex gap-[3px] items-end h-3.5 px-1 hidden">
+      <span class="w-[3px] bg-gold-dark rounded-full animate-eq-1 h-[100%]" style="animation-delay: 0.1s"></span>
+      <span class="w-[3px] bg-gold-dark rounded-full animate-eq-2 h-[60%]" style="animation-delay: 0.3s"></span>
+      <span class="w-[3px] bg-gold-dark rounded-full animate-eq-3 h-[80%]" style="animation-delay: 0.5s"></span>
+    </div>
+    <div id="mute-icon" class="text-taupe">
+      <!-- Muted Speaker SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-volume-x"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="22" x2="16" y1="9" y2="15"/><line x1="16" x2="22" y1="9" y2="15"/></svg>
+    </div>
+  </button>
+
+  <!-- 4. THEATRICAL SPLITTING WELCOME SCREEN (Sliding Doors) -->
+  <div id="welcome-screen" class="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-primary-bg transition-opacity duration-1000">
+    <!-- Geometric Islamic Grid background pattern -->
+    <div class="absolute inset-0 opacity-15 pointer-events-none">
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+        <defs>
+          <pattern id="islamic-grid-preview" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M30 0 L60 30 L30 60 L0 30 Z" fill="none" stroke="#B88B4A" strokeWidth="0.5" />
+            <circle cx="30" cy="30" r="3" fill="none" stroke="#B88B4A" strokeWidth="0.5" />
+            <path d="M0 30 H60 M30 0 V60" stroke="#B88B4A" strokeWidth="0.25" fill="none" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#islamic-grid-preview)" />
+      </svg>
+    </div>
+
+    <!-- Left Door Curtain -->
+    <div id="curtain-left" class="absolute left-0 top-0 bottom-0 w-1/2 bg-[#F3E7D8] border-r border-[#D4AF6A]/30 transition-transform duration-1000 ease-[cubic-bezier(0.77,0,0.175,1)]"></div>
+
+    <!-- Right Door Curtain -->
+    <div id="curtain-right" class="absolute right-0 top-0 bottom-0 w-1/2 bg-[#F3E7D8] border-l border-[#D4AF6A]/30 transition-transform duration-1000 ease-[cubic-bezier(0.77,0,0.175,1)]"></div>
+
+    <!-- Sealed Gate Center Envelope -->
+    <div id="welcome-envelope" class="relative z-10 max-w-sm w-[90%] mx-auto bg-primary-bg p-8 rounded-2xl border-2 border-gold-dark shadow-2xl text-center gold-double-border transition-all duration-700">
+      <div class="text-xl md:text-2xl font-arabic text-gold-dark mb-5 tracking-wide select-none">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+      <p class="text-xs uppercase tracking-[0.25em] text-taupe mb-4 font-sans font-medium">YOU ARE CORDIALLY INVITED TO THE NIKKAH OF</p>
+
+      <h1 class="flex flex-col gap-1 my-5">
+        <span class="font-script text-4xl md:text-5xl gold-text-gradient font-bold leading-none py-1">Arshiya S Banu</span>
+        <span class="font-script text-2xl text-taupe">&amp;</span>
+        <span class="font-script text-4xl md:text-5xl gold-text-gradient font-bold leading-none py-1">Hazim Rahman</span>
+      </h1>
+
+      <div class="flex items-center justify-center gap-3 my-5">
+        <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold"></div>
+        <div class="w-2 h-2 rounded-full rotate-45 border border-gold-dark bg-primary-bg"></div>
+        <div class="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold"></div>
+      </div>
+
+      <p class="font-serif text-sm uppercase tracking-[0.15em] text-espresso mb-8 font-medium">Saturday, 26th December 2026</p>
+
+      <button id="open-btn" class="inline-flex items-center gap-3 bg-gradient-to-r from-gold-dark to-gold hover:from-[#9C7235] hover:to-[#B88B4A] text-[#FAF5EE] px-6 py-3.5 rounded-full font-serif text-xs uppercase tracking-[0.2em] font-bold shadow-lg cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 outline-none" style="box-shadow: 0 0 0 0 rgba(184,139,74,0.4); animation: pulse-shadow 2s infinite">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-open"><path d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z"/><path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10"/></svg>
+        Tap to Open
+      </button>
+
+      <p class="text-[10px] text-taupe tracking-wider uppercase mt-4 select-none font-sans font-medium">Music will play upon opening</p>
+    </div>
+  </div>
+
+  <!-- 5. MAIN CONTENT COLUMN -->
+  <main id="main-content" class="w-full max-w-lg mx-auto flex flex-col items-center px-4 py-8 md:py-12 gap-12 opacity-0 transition-opacity duration-1000 pointer-events-none">
+
+    <!-- SECTION 1: HERO / THE CARD -->
+    <section class="w-full min-h-[90svh] flex flex-col justify-center items-center py-4">
+
+      <!-- Ornate Mughal Arch Frame -->
+      <div class="relative w-full max-w-[400px] mx-auto min-h-[600px] bg-primary-bg p-8 shadow-[0_15px_40px_rgba(92,64,40,0.08)] flex flex-col items-center justify-between rounded-3xl overflow-hidden border border-gold/20">
+
+        <!-- SVG Ornate Frame Background -->
+        <div class="absolute inset-0 pointer-events-none p-3.5">
+          <svg class="w-full h-full" viewBox="0 0 100 150" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="98" height="148" rx="8" stroke="#D4AF6A" stroke-width="0.5" vector-effect="non-scaling-stroke" stroke-dasharray="2 1"/>
+            <path d="M 4, 145 L 4, 45 C 4, 30, 15, 18, 25, 15 C 35, 12, 45, 6, 50, 2 C 55, 6, 65, 12, 75, 15 C 85, 18, 96, 30, 96, 45 L 96, 145 Z" stroke="#B88B4A" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+            <path d="M 6.5, 142.5 L 6.5, 45.5 C 6.5, 31.5, 17, 19.5, 26.5, 16.5 C 36, 13.5, 45.5, 7.5, 50, 4 C 54.5, 7.5, 64, 13.5, 73.5, 16.5 C 83, 19.5, 93.5, 31.5, 93.5, 45.5 L 93.5, 142.5 Z" stroke="#D4AF6A" stroke-width="0.5" vector-effect="non-scaling-stroke" opacity="0.7"/>
+            <path d="M 4, 135 C 10, 135, 10, 145, 4, 145 M 4, 138 C 8, 138, 8, 145, 11, 145" stroke="#B88B4A" stroke-width="0.75" vector-effect="non-scaling-stroke"/>
+            <path d="M 96, 135 C 90, 135, 90, 145, 96, 145 M 96, 138 C 92, 138, 92, 145, 89, 145" stroke="#B88B4A" stroke-width="0.75" vector-effect="non-scaling-stroke"/>
+            <g transform="translate(50, 10) scale(0.6)">
+              <path d="M -10, 5 C 0, -2, 0, -10, 0, -12 C 0, -10, 0, -2, 10, 5 C 4, 7, -4, 7, -10, 5 Z" fill="#B88B4A" opacity="0.8"/>
+              <circle cx="0" cy="-15" r="1.5" fill="#D4AF6A"/>
+            </g>
+            <g transform="translate(50, 140) scale(0.5)">
+              <path d="M -15,0 C -5,-5 5,-5 15,0 C 10,5 -10,5 -15,0 Z" stroke="#B88B4A" stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/>
+              <path d="M 0,-8 C -3,-3 -8,0 0,5 C 8,0 3,-3 0,-8 Z" fill="#D4AF6A" opacity="0.9"/>
+              <circle cx="-25" cy="0" r="1" fill="#B88B4A"/>
+              <circle cx="25" cy="0" r="1" fill="#B88B4A"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="absolute top-4 left-4 w-6 h-6 border-t border-l border-[#D4AF6A]/40 rounded-tl pointer-events-none"></div>
+        <div class="absolute top-4 right-4 w-6 h-6 border-t border-r border-[#D4AF6A]/40 rounded-tr pointer-events-none"></div>
+        <div class="absolute bottom-4 left-4 w-6 h-6 border-b border-l border-[#D4AF6A]/40 rounded-bl pointer-events-none"></div>
+        <div class="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-[#D4AF6A]/40 rounded-br pointer-events-none"></div>
+
+        <!-- Frame Content -->
+        <div class="relative z-10 w-full h-full flex flex-col items-center justify-between py-6 px-3 flex-grow">
+          <!-- Bismillah -->
+          <div class="text-2xl md:text-3xl font-arabic text-[#B88B4A] mb-3 tracking-wide pt-4">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+
+          <!-- Opening -->
+          <div class="flex flex-col gap-1.5 my-2">
+            <span class="font-serif text-[10px] md:text-xs uppercase tracking-[0.25em] text-[#7D6249] font-semibold">TOGETHER WITH YOUR FAMILY</span>
+            <span class="font-script text-[#B88B4A] text-lg md:text-xl italic">you are cordially invited to the</span>
+          </div>
+
+          <!-- Nikkah Title -->
+          <h2 class="font-script text-5xl md:text-6xl gold-text-gradient font-bold my-3 py-1">Nikkah</h2>
+
+          <!-- Bride details -->
+          <div class="flex flex-col gap-1 my-1 max-w-[280px]">
+            <h3 class="font-serif text-lg md:text-xl font-bold tracking-wide text-[#5C4028]">Arshiya S Banu</h3>
+            <p class="text-[10px] md:text-xs text-[#7D6249] uppercase tracking-wider leading-relaxed">Daughter of Late Syed Asif Ali & Tanveer Kausar</p>
+          </div>
+
+          <!-- Heart Icon Divider -->
+          <div class="flex items-center justify-center gap-2.5 my-2">
+            <div class="h-[0.5px] w-8 bg-[#D4AF6A]/50"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#D4AF6A" stroke="#B88B4A" stroke-width="1" class="text-gold-dark animate-pulse"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            <div class="h-[0.5px] w-8 bg-[#D4AF6A]/50"></div>
+          </div>
+
+          <!-- Groom details -->
+          <div class="flex flex-col gap-1 my-1 max-w-[280px] pb-4">
+            <h3 class="font-serif text-lg md:text-xl font-bold tracking-wide text-[#5C4028]">Hazim Rahman</h3>
+            <p class="text-[10px] md:text-xs text-[#7D6249] uppercase tracking-wider leading-relaxed">Son of Mohammed Shareef Nangarath & Raseena Thekke Koleth</p>
+          </div>
+
+          <!-- Chevron scroll hint -->
+          <div class="flex flex-col items-center gap-1 mt-auto pt-4 animate-bounce-slow">
+            <span class="text-[9px] uppercase tracking-[0.2em] text-[#7D6249] font-medium font-sans">Scroll for details</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B88B4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: EVENT DETAILS & COUNTDOWN -->
+    <section class="w-full min-h-[90svh] flex flex-col justify-center items-center py-4">
+      <div class="relative w-full max-w-[400px] mx-auto min-h-[600px] bg-primary-bg p-8 shadow-[0_15px_40px_rgba(92,64,40,0.08)] flex flex-col items-center justify-between rounded-3xl overflow-hidden border border-gold/20">
+
+        <!-- Border lines repeat -->
+        <div class="absolute inset-0 pointer-events-none p-3.5">
+          <svg class="w-full h-full" viewBox="0 0 100 150" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="98" height="148" rx="8" stroke="#D4AF6A" stroke-width="0.5" vector-effect="non-scaling-stroke" stroke-dasharray="2 1"/>
+            <path d="M 4, 145 L 4, 45 C 4, 30, 15, 18, 25, 15 C 35, 12, 45, 6, 50, 2 C 55, 6, 65, 12, 75, 15 C 85, 18, 96, 30, 96, 45 L 96, 145 Z" stroke="#B88B4A" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+            <path d="M 6.5, 142.5 L 6.5, 45.5 C 6.5, 31.5, 17, 19.5, 26.5, 16.5 C 36, 13.5, 45.5, 7.5, 50, 4 C 54.5, 7.5, 64, 13.5, 73.5, 16.5 C 83, 19.5, 93.5, 31.5, 93.5, 45.5 L 93.5, 142.5 Z" stroke="#D4AF6A" stroke-width="0.5" vector-effect="non-scaling-stroke" opacity="0.7"/>
+          </svg>
+        </div>
+
+        <div class="relative z-10 w-full h-full flex flex-col items-center justify-between py-6 px-3 flex-grow">
+          <!-- Floral Crown Header -->
+          <div class="w-16 h-4 flex items-center justify-center gap-1.5 pt-2">
+            <div class="w-1.5 h-1.5 rounded-full bg-[#D4AF6A]"></div>
+            <div class="w-2.5 h-2.5 rounded-full border border-[#B88B4A] rotate-45"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-[#D4AF6A]"></div>
+          </div>
+
+          <!-- COUNTDOWN TIMER -->
+          <div class="w-full flex flex-col items-center gap-3 my-4 px-1">
+            <h4 class="font-serif text-xs uppercase tracking-[0.2em] text-[#7D6249] font-bold">COUNTDOWN TO THE NIKKAH</h4>
+
+            <div class="grid grid-cols-4 gap-2 w-full max-w-[320px]">
+              <!-- Days -->
+              <div class="flex flex-col items-center p-2 bg-[#F3E7D8]/80 border border-[#D4AF6A]/30 rounded-xl shadow-sm">
+                <span id="timer-days" class="font-serif text-2xl md:text-3xl font-semibold text-[#5C4028] tabular-nums">00</span>
+                <span class="text-[9px] uppercase tracking-wider text-[#7D6249] mt-0.5 font-medium">Days</span>
+              </div>
+              <!-- Hours -->
+              <div class="flex flex-col items-center p-2 bg-[#F3E7D8]/80 border border-[#D4AF6A]/30 rounded-xl shadow-sm">
+                <span id="timer-hours" class="font-serif text-2xl md:text-3xl font-semibold text-[#5C4028] tabular-nums">00</span>
+                <span class="text-[9px] uppercase tracking-wider text-[#7D6249] mt-0.5 font-medium">Hours</span>
+              </div>
+              <!-- Minutes -->
+              <div class="flex flex-col items-center p-2 bg-[#F3E7D8]/80 border border-[#D4AF6A]/30 rounded-xl shadow-sm">
+                <span id="timer-mins" class="font-serif text-2xl md:text-3xl font-semibold text-[#5C4028] tabular-nums">00</span>
+                <span class="text-[9px] uppercase tracking-wider text-[#7D6249] mt-0.5 font-medium">Mins</span>
+              </div>
+              <!-- Seconds -->
+              <div class="flex flex-col items-center p-2 bg-[#F3E7D8]/80 border border-[#D4AF6A]/30 rounded-xl shadow-sm">
+                <span id="timer-secs" class="font-serif text-2xl md:text-3xl font-semibold text-[#5C4028] tabular-nums">00</span>
+                <span class="text-[9px] uppercase tracking-wider text-[#7D6249] mt-0.5 font-medium">Secs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- EVENT DETAILS -->
+          <div class="w-full flex flex-col gap-3.5 my-2 px-1 max-w-[320px]">
+            <!-- Date card -->
+            <div class="flex items-center gap-3.5 p-3 bg-secondary-surface/40 border border-gold/20 rounded-xl text-left shadow-sm">
+              <div class="p-2 bg-primary-bg border border-gold/30 rounded-lg text-gold-dark">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-[8px] uppercase tracking-wider text-taupe font-bold">Date</span>
+                <span class="font-serif text-xs font-bold text-espresso leading-tight mt-0.5">Saturday, 26th December 2026</span>
+              </div>
+            </div>
+
+            <!-- Time card -->
+            <div class="flex items-center gap-3.5 p-3 bg-secondary-surface/40 border border-gold/20 rounded-xl text-left shadow-sm">
+              <div class="p-2 bg-primary-bg border border-gold/30 rounded-lg text-gold-dark">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-[8px] uppercase tracking-wider text-taupe font-bold">Time</span>
+                <span class="font-serif text-xs font-bold text-espresso leading-tight mt-0.5">Nikkah Time — 11:00 AM</span>
+              </div>
+            </div>
+
+            <!-- Venue card -->
+            <div class="flex items-start gap-3.5 p-3 bg-secondary-surface/40 border border-gold/20 rounded-xl text-left shadow-sm">
+              <div class="p-2 bg-primary-bg border border-gold/30 rounded-lg text-gold-dark mt-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-[8px] uppercase tracking-wider text-taupe font-bold">Venue</span>
+                <span class="font-serif text-[11px] font-bold text-espresso leading-relaxed mt-0.5">MTP Convention Center, Trikaripur, Kasargod, Kerala</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ACTIONS -->
+          <div class="w-full flex flex-col gap-2.5 mt-4 max-w-[320px] px-1 pb-4">
+            <a href="https://www.google.com/maps/search/?api=1&query=MTP+Convention+Center,+Trikaripur,+Kasargod,+Kerala" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-primary-bg hover:bg-secondary-surface text-espresso border-1.5 border-gold-dark py-2.5 rounded-xl font-serif text-xs uppercase tracking-widest font-bold shadow-sm cursor-pointer transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              Open Google Maps
+            </a>
+
+            <div class="grid grid-cols-2 gap-2">
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Nikkah+of+Arshiya+%26+Hazim&dates=20261226T110000+0530/20261226T150000+0530&details=You+are+cordially+invited+to+the+Nikkah+of+Arshiya+S+Banu+and+Hazim+Rahman+at+MTP+Convention+Center,+Trikaripur.&location=MTP+Convention+Center,+Trikaripur,+Kasargod,+Kerala&sf=true&output=xml" target="_blank" class="inline-flex items-center justify-center gap-1 bg-gradient-to-r from-gold-dark to-gold text-[#FAF5EE] hover:brightness-[0.96] py-2.5 rounded-xl font-serif text-[10px] uppercase tracking-widest font-bold shadow-sm">
+                Google Cal
+              </a>
+              <button onclick="downloadIcsPreview()" class="inline-flex items-center justify-center gap-1.5 bg-gradient-to-r from-gold-dark to-gold text-[#FAF5EE] hover:brightness-[0.96] py-2.5 rounded-xl font-serif text-[10px] uppercase tracking-widest font-bold shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                Apple Cal (.ics)
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CLOSING BLESSING & VERSE -->
+    <section class="w-full min-h-[90svh] flex flex-col justify-center items-center py-4">
+      <div class="relative w-full max-w-[400px] mx-auto min-h-[600px] bg-primary-bg p-8 shadow-[0_15px_40px_rgba(92,64,40,0.08)] flex flex-col items-center justify-between rounded-3xl overflow-hidden border border-gold/20">
+
+        <!-- Border lines repeat -->
+        <div class="absolute inset-0 pointer-events-none p-3.5">
+          <svg class="w-full h-full" viewBox="0 0 100 150" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="98" height="148" rx="8" stroke="#D4AF6A" stroke-width="0.5" vector-effect="non-scaling-stroke" stroke-dasharray="2 1"/>
+            <path d="M 4, 145 L 4, 45 C 4, 30, 15, 18, 25, 15 C 35, 12, 45, 6, 50, 2 C 55, 6, 65, 12, 75, 15 C 85, 18, 96, 30, 96, 45 L 96, 145 Z" stroke="#B88B4A" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+            <path d="M 6.5, 142.5 L 6.5, 45.5 C 6.5, 31.5, 17, 19.5, 26.5, 16.5 C 36, 13.5, 45.5, 7.5, 50, 4 C 54.5, 7.5, 64, 13.5, 73.5, 16.5 C 83, 19.5, 93.5, 31.5, 93.5, 45.5 L 93.5, 142.5 Z" stroke="#D4AF6A" stroke-width="0.5" vector-effect="non-scaling-stroke" opacity="0.7"/>
+          </svg>
+        </div>
+
+        <div class="relative z-10 w-full h-full flex flex-col items-center justify-between py-6 px-3 flex-grow">
+          <!-- Floral Crown Header -->
+          <div class="text-xl text-gold-dark mb-4 pt-4 select-none">❦</div>
+
+          <!-- Quranic verse -->
+          <div class="flex flex-col items-center gap-3 my-4 max-w-[280px]">
+            <span class="font-arabic text-xl md:text-2xl text-gold-dark font-bold tracking-wide">وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</span>
+            <span class="font-serif text-sm italic text-espresso text-center leading-relaxed">“And He placed between you<br>affection and mercy.”</span>
+            <span class="text-[9px] uppercase tracking-[0.2em] text-taupe font-bold font-sans">Surah Ar-Rum 30:21</span>
+          </div>
+
+          <!-- Divider -->
+          <div class="flex items-center justify-center gap-2.5 my-6">
+            <div class="h-[0.5px] w-12 bg-gradient-to-r from-transparent to-gold"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-gold-dark rotate-45"></div>
+            <div class="h-[0.5px] w-12 bg-gradient-to-l from-transparent to-gold"></div>
+          </div>
+
+          <!-- Closing text exactly matching spelling -->
+          <p class="font-serif text-xs md:text-sm text-espresso max-w-[290px] leading-relaxed font-semibold uppercase tracking-wider py-4 mb-4">
+            Your gracious presence will make our celebration more meaningful
+          </p>
+
+          <!-- Signature Footer Card -->
+          <div class="w-full max-w-[320px] px-1 flex flex-col items-center mt-auto pb-6 text-taupe">
+            <div class="h-[1px] w-16 bg-gold/30 mb-4"></div>
+            <span class="font-serif text-[10px] uppercase tracking-[0.25em] font-semibold text-gold-dark">With Prayers &amp; Regards</span>
+            <span class="text-[10px] tracking-widest uppercase font-sans mt-1 text-taupe font-medium">The Family of Arshiya &amp; Hazim</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // 1. Spawning floating gold dust & leaf particles in preview
+    const container = document.getElementById("particles-container");
+    const count = 20;
+
+    for (let i = 0; i < count; i++) {
+      const left = Math.random() * 100;
+      const size = Math.random() * (i % 4 === 0 ? 12 : 4) + 2;
+      const delay = Math.random() * 12;
+      const duration = 12 + Math.random() * 16;
+      const opacity = 0.2 + Math.random() * 0.45;
+      const isLeaf = i % 4 === 0;
+
+      if (isLeaf) {
+        const leaf = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        leaf.setAttribute("class", "absolute bottom-[-50px] fill-[#D4AF6A] animate-float-slow opacity-0 pointer-events-none");
+        leaf.setAttribute("viewBox", "0 0 24 24");
+        leaf.setAttribute("width", size);
+        leaf.setAttribute("height", size);
+        leaf.style.left = `${left}%`;
+        leaf.style.animationDelay = `${delay}s`;
+        leaf.style.animationDuration = `${duration}s`;
+        leaf.style.opacity = opacity;
+        leaf.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", "M12,2 C12,2 17,7 17,12 C17,17 12,22 12,22 C12,22 7,17 7,12 C7,7 12,2 M12,4 C9,8 9,12 12,20 C15,12 15,8 12,4 Z");
+        leaf.appendChild(path);
+        container.appendChild(leaf);
+      } else {
+        const dot = document.createElement("div");
+        dot.setAttribute("class", "absolute bottom-[-20px] rounded-full bg-gradient-to-tr from-[#B88B4A] to-[#E6C587] animate-float-slow opacity-0 pointer-events-none");
+        dot.style.left = `${left}%`;
+        dot.style.width = `${size}px`;
+        dot.style.height = `${size}px`;
+        dot.style.animationDelay = `${delay}s`;
+        dot.style.animationDuration = `${duration}s`;
+        dot.style.opacity = opacity;
+        dot.style.boxShadow = "0 0 8px rgba(212,175,106,0.6)";
+        container.appendChild(dot);
+      }
+    }
+
+    // 2. Interactive Welcome Gate splitting animation & music trigger
+    const welcomeScreen = document.getElementById("welcome-screen");
+    const envelope = document.getElementById("welcome-envelope");
+    const openBtn = document.getElementById("open-btn");
+    const curtainLeft = document.getElementById("curtain-left");
+    const curtainRight = document.getElementById("curtain-right");
+    const mainContent = document.getElementById("main-content");
+    const musicBtn = document.getElementById("music-btn");
+    const audio = document.getElementById("ambient-audio");
+    const eqBars = document.getElementById("eq-bars");
+    const muteIcon = document.getElementById("mute-icon");
+
+    openBtn.addEventListener("click", () => {
+      // 1. Play background music
+      audio.volume = 0.4;
+      audio.play().then(() => {
+        eqBars.classList.remove("hidden");
+        muteIcon.classList.add("hidden");
+        musicBtn.setAttribute("title", "Mute Music");
+      }).catch(err => {
+        console.log("Autoplay blocked or failed, wait for click on button", err);
+      });
+
+      // 2. Open gate curtains
+      curtainLeft.style.transform = "translateX(-100%)";
+      curtainRight.style.transform = "translateX(100%)";
+
+      // Scale down and fade center seal card
+      envelope.style.transform = "scale(0.8) translateY(-30px)";
+      envelope.style.opacity = "0";
+
+      // Fade out and remove welcome cover overlay
+      setTimeout(() => {
+        welcomeScreen.style.opacity = "0";
+        welcomeScreen.style.pointerEvents = "none";
+
+        // Show main page smoothly
+        mainContent.classList.remove("pointer-events-none");
+        mainContent.style.opacity = "1";
+        musicBtn.classList.remove("hidden");
+      }, 1000);
+    });
+
+    // 3. Audio Player toggling
+    musicBtn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play().then(() => {
+          eqBars.classList.remove("hidden");
+          muteIcon.classList.add("hidden");
+          musicBtn.setAttribute("title", "Mute Music");
+        });
+      } else {
+        audio.pause();
+        eqBars.classList.add("hidden");
+        muteIcon.classList.remove("hidden");
+        musicBtn.setAttribute("title", "Play Music");
+      }
+    });
+
+    // Pause audio when tab hidden
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        audio.pause();
+      } else if (!audio.paused) {
+        audio.play().catch(() => {});
+      }
+    });
+
+    // 4. Live Countdown to 2026-12-26T11:00:00+05:30 (IST)
+    const countdownTarget = new Date("2026-12-26T11:00:00+05:30").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = countdownTarget - now;
+
+      if (diff <= 0) {
+        document.getElementById("timer-days").textContent = "00";
+        document.getElementById("timer-hours").textContent = "00";
+        document.getElementById("timer-mins").textContent = "00";
+        document.getElementById("timer-secs").textContent = "00";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("timer-days").textContent = String(days).padStart(2, "0");
+      document.getElementById("timer-hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("timer-mins").textContent = String(mins).padStart(2, "0");
+      document.getElementById("timer-secs").textContent = String(secs).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // 5. Dynamic Apple/Outlook .ics file generation and download (zero libraries)
+    function downloadIcsPreview() {
+      const icsContent = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Nikkah Invitation//Arshiya and Hazim//EN",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH",
+        "BEGIN:VEVENT",
+        "UID:nikkah-arshiya-hazim-2026",
+        "DTSTAMP:20260101T000000Z",
+        "DTSTART;TZID=Asia/Kolkata:20261226T110000",
+        "DTEND;TZID=Asia/Kolkata:20261226T150000",
+        "SUMMARY:Nikkah of Arshiya S Banu & Hazim Rahman",
+        "DESCRIPTION:You are cordially invited to join us for our Nikkah ceremony. Bride: Arshiya S Banu (Daughter of Late Syed Asif Ali & Tanveer Kausar). Groom: Hazim Rahman (Son of Mohammed Shareef Nangarath & Raseena Thekke Koleth).",
+        "LOCATION:MTP Convention Center, Trikaripur, Kasargod, Kerala",
+        "SEQUENCE:0",
+        "STATUS:CONFIRMED",
+        "TRANSP:OPAQUE",
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+
+      const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "Nikkah_Arshiya_Hazim.ics");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+
+  <!-- Pulse animation style -->
+  <style>
+    @keyframes pulse-shadow {
+      0% { box-shadow: 0 0 0 0 rgba(184,139,74,0.4); }
+      70% { box-shadow: 0 0 0 12px rgba(184,139,74,0); }
+      100% { box-shadow: 0 0 0 0 rgba(184,139,74,0); }
+    }
+  </style>
+</body>
+</html>

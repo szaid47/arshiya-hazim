@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-bg: #FAF5EE;
+  --color-secondary-surface: #F3E7D8;
+  --color-gold: #D4AF6A;
+  --color-gold-dark: #B88B4A;
+  --color-espresso: #5C4028;
+  --color-taupe: #7D6249;
+
+  --font-arabic: "Amiri", "Scheherazade New", serif;
+  --font-script: "Great Vibes", "Alex Brush", cursive;
+  --font-serif: "Cormorant Garamond", "Cinzel", serif;
+  --font-sans: "Montserrat", system-ui, sans-serif;
+
+  --animate-fade-up: fade-up 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-gold-glow: gold-glow 3s ease-in-out infinite alternate;
+  --animate-float-slow: float-slow 20s linear infinite;
+  --animate-curtain-left: curtain-left 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  --animate-curtain-right: curtain-right 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gold-glow {
+  from {
+    filter: drop-shadow(0 0 2px rgba(212, 175, 106, 0.3));
+  }
+  to {
+    filter: drop-shadow(0 0 10px rgba(212, 175, 106, 0.8));
+  }
+}
+
+@keyframes float-slow {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes curtain-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes curtain-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Custom Base Styles */
+html, body {
+  background-color: #FAF5EE;
+  color: #5C4028;
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF5EE;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4AF6A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B88B4A;
+}
+
+/* Gold Gradient Text */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #B88B4A 0%, #E6C587 30%, #D4AF6A 70%, #9C7235 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Elegant Borders */
+.gold-double-border {
+  position: relative;
+}
+.gold-double-border::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid #D4AF6A;
+  pointer-events: none;
+  opacity: 0.7;
+}
+.gold-double-border::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1.5px solid #B88B4A;
+  pointer-events: none;
+}
+
+/* Leaf/Dust Floating animation classes */
+.floating-petal {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10;
+}
