@@ -224,7 +224,7 @@ function App() {
             <div className="w-full flex flex-col gap-2.5 mt-6 max-w-[340px] px-2 pb-4">
               {/* Maps Integration */}
               <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(weddingDetails.mapsQuery)}`}
+                href="https://share.google/ObErdmOPbMdCPGg68"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 bg-[#FAF5EE] hover:bg-[#F3E7D8] text-[#5C4028] border-1.5 border-[#B88B4A] py-3 rounded-xl font-serif text-xs uppercase tracking-widest font-bold shadow-sm cursor-pointer transition-all duration-300 active:scale-[0.99] outline-none"
