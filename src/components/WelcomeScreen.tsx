@@ -31,12 +31,23 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onOpen, isOpen }) 
         </svg>
       </div>
 
+      {/* Dimmed Couple Photo Background */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="couple-background-left absolute inset-y-0 left-0 w-[58%] overflow-hidden">
+          <img src="/couple-portrait-1.jpeg" alt="" className="h-full w-full object-cover object-[50%_24%] blur-[3px] scale-[1.04]" />
+        </div>
+        <div className="couple-background-right absolute inset-y-0 right-0 w-[58%] overflow-hidden">
+          <img src="/couple-portrait-2.jpeg" alt="" className="h-full w-full object-cover object-[50%_24%] blur-[3px] scale-[1.04]" />
+        </div>
+        <div className="absolute inset-0 bg-[#FAF5EE]/55" />
+      </div>
+
       {/* Left Curtain / Panel */}
       <motion.div
         initial={{ x: 0 }}
         animate={isOpen ? { x: "-100%" } : { x: 0 }}
         transition={{ duration: 1.2, ease: [0.77, 0, 0.175, 1] }}
-        className="absolute left-0 top-0 bottom-0 w-1/2 bg-[#F3E7D8] border-r border-[#D4AF6A]/30 shadow-2xl"
+        className="absolute left-0 top-0 bottom-0 w-1/2 bg-[#F3E7D8]/85 border-r border-[#D4AF6A]/30 shadow-2xl"
       />
 
       {/* Right Curtain / Panel */}
@@ -44,7 +55,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onOpen, isOpen }) 
         initial={{ x: 0 }}
         animate={isOpen ? { x: "100%" } : { x: 0 }}
         transition={{ duration: 1.2, ease: [0.77, 0, 0.175, 1] }}
-        className="absolute right-0 top-0 bottom-0 w-1/2 bg-[#F3E7D8] border-l border-[#D4AF6A]/30 shadow-2xl"
+        className="absolute right-0 top-0 bottom-0 w-1/2 bg-[#F3E7D8]/85 border-l border-[#D4AF6A]/30 shadow-2xl"
       />
 
       {/* Center Royal Seal Envelope Frame */}

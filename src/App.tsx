@@ -56,7 +56,18 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#FAF5EE] text-[#5C4028] overflow-x-hidden font-sans select-none selection:bg-[#D4AF6A]/20 selection:text-[#5C4028]">
+    <div className="relative min-h-screen overflow-x-hidden text-[#5C4028] selection:bg-[#D4AF6A]/20 selection:text-[#5C4028]">
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <div className="couple-background-left absolute inset-y-0 left-0 w-[58%]">
+          <img src="/couple-portrait-1.jpeg" alt="" className="h-full w-full object-cover scale-[1.04] blur-[3px]" />
+        </div>
+        <div className="couple-background-right absolute inset-y-0 right-0 w-[58%]">
+          <img src="/couple-portrait-2.jpeg" alt="" className="h-full w-full object-cover scale-[1.04] blur-[3px]" />
+        </div>
+        <div className="absolute inset-0 bg-[#FAF5EE]/45" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF5EE]/25 via-white/5 to-[#FAF5EE]/35" />
+      </div>
+
       {/* 1. Interactive Welcome Cover / Sliding Panels */}
       <AnimatePresence>
         {!isOpen && (
@@ -77,7 +88,7 @@ function App() {
         initial={{ opacity: 0 }}
         animate={isOpen ? { opacity: 1 } : { opacity: 0 }}
         transition={{ delay: 0.4, duration: 1 }}
-        className="w-full max-w-lg mx-auto flex flex-col items-center px-4 py-8 md:py-12 gap-12"
+        className="relative z-10 w-full max-w-lg mx-auto flex flex-col items-center px-4 py-8 md:py-12 gap-12"
       >
         {/* PANEL 1: HERO / THE MAIN CARD */}
         <section className="w-full min-h-[92svh] flex flex-col justify-center items-center py-4">
