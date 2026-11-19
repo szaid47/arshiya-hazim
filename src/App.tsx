@@ -214,18 +214,6 @@ function App() {
               </div>
             </div>
 
-            {/* Venue Map */}
-            <div className="w-full max-w-[340px] px-2 mt-4">
-              <iframe
-                title="MTP Convention Centre location"
-                src="https://www.google.com/maps?q=MTP+Convention+Centre+Trikaripur+Kasargod+Kerala&output=embed"
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-56 md:h-64 rounded-xl border border-[#D4AF6A]/70 shadow-sm"
-              />
-            </div>
-
             {/* Quick Actions Panel */}
             <div className="w-full flex flex-col gap-2.5 mt-6 max-w-[340px] px-2 pb-4">
               {/* Maps Integration */}
@@ -262,10 +250,10 @@ function App() {
         </section>
 
         {/* PANEL 3: CLOSING BLESSING & QURANIC VERSE */}
-        <section className="w-full min-h-[92svh] flex flex-col justify-center items-center py-4">
+        <section className="w-full min-h-[92svh] flex flex-col justify-center items-center py-6">
           <OrnateFrame>
             {/* Arabic Quranic Verse */}
-            <div className="flex flex-col items-center gap-3 my-4 max-w-[280px]">
+            <div className="mt-[150px] md:mt-[155px] flex flex-col items-center justify-center gap-3 mb-4 max-w-[300px]">
               <span dir="rtl" className="font-arabic text-xl md:text-2xl text-[#B88B4A] font-bold leading-[1.8] text-center whitespace-nowrap">
                 وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
               </span>
@@ -289,7 +277,7 @@ function App() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1 }}
-              className="font-serif text-xs md:text-sm text-[#5C4028] max-w-[300px] mx-auto leading-relaxed font-semibold uppercase tracking-[0.12em] py-4 mb-4 text-center"
+              className="font-serif text-xs md:text-sm text-[#5C4028] max-w-[300px] mx-auto leading-[1.7] font-semibold uppercase tracking-[0.12em] py-4 my-auto text-center flex items-center justify-center"
             >
               {weddingDetails.closingMessage}
             </motion.p>
