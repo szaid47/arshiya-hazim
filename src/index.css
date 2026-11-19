@@ -185,24 +185,3 @@ html, body {
 .bride-name {
   text-transform: none;
 }
-
-/* Soft, aligned couple-photo backdrop */
-.couple-background-left,
-.couple-background-right {
-  overflow: hidden;
-}
-
-.couple-background-left img,
-.couple-background-right img {
-  object-position: 50% 24%;
-}
-
-.couple-background-left {
-  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 62%, transparent 100%);
-  mask-image: linear-gradient(to right, #000 0%, #000 62%, transparent 100%);
-}
-
-.couple-background-right {
-  -webkit-mask-image: linear-gradient(to left, #000 0%, #000 62%, transparent 100%);
-  mask-image: linear-gradient(to left, #000 0%, #000 62%, transparent 100%);
-}

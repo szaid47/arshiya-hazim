@@ -31,17 +31,6 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onOpen, isOpen }) 
         </svg>
       </div>
 
-      {/* Dimmed Couple Photo Background */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="couple-background-left absolute inset-y-0 left-0 w-[58%] overflow-hidden">
-          <img src="/couple-portrait-1.jpeg" alt="" className="h-full w-full object-cover object-[50%_24%] blur-[3px] scale-[1.04]" />
-        </div>
-        <div className="couple-background-right absolute inset-y-0 right-0 w-[58%] overflow-hidden">
-          <img src="/couple-portrait-2.jpeg" alt="" className="h-full w-full object-cover object-[50%_24%] blur-[3px] scale-[1.04]" />
-        </div>
-        <div className="absolute inset-0 bg-[#FAF5EE]/55" />
-      </div>
-
       {/* Left Curtain / Panel */}
       <motion.div
         initial={{ x: 0 }}
